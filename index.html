@@ -4,560 +4,528 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f5f7f6">
-<title>DM ARMY Official</title>
-
-
+<meta name="theme-color" content="#09091c">
+<title>DM ARMY | Official Telegram Channel</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html,body{
-width:100%;
-min-height:100%;
+html, body {
+  width: 100%;
+  min-height: 100%;
 }
 
-body{
-min-height:100vh;
-min-height:100svh;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow-x:hidden;
-padding:10px 10px 58px;
-font-family:Arial,Helvetica,sans-serif;
-background:
-radial-gradient(ellipse at 0% 15%,#ffd4df,transparent 45%),
-radial-gradient(ellipse at 100% 90%,#ffe7b0,transparent 42%),
-linear-gradient(135deg,#f9eeee,#e9fafa,#fff9e9);
+body {
+  background:
+    radial-gradient(ellipse at 50% 40%, #24104b 0%, transparent 55%),
+    linear-gradient(145deg,#080b19,#100a29,#090d20);
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
 }
 
-/* MAIN COMPACT CARD */
-
-.card{
-position:relative;
-z-index:1;
-width:min(100%,410px);
-height:min(650px,calc(100svh - 95px));
-min-height:min(490px,calc(100svh - 105px));
-padding:15px 15px;
-border:1.5px solid #a4cfc3;
-border-radius:38px;
-background:rgba(255,255,255,.84);
-box-shadow:0 20px 55px rgba(40,70,65,.13);
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:space-evenly;
-gap:5px;
-overflow:hidden;
-animation:cardEnter .9s ease both;
+#dm-page {
+  min-height: 100vh;
+  min-height: 100svh;
+  position: relative;
+  padding-bottom: 75px;
 }
 
-@keyframes cardEnter{
-from{opacity:0;transform:translateY(25px) scale(.98)}
-to{opacity:1;transform:translateY(0) scale(1)}
+/* TICKER */
+
+.ticker {
+  height: 52px;
+  background: #050514;
+  border-bottom: 1px solid #282044;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-/* TOP LABEL */
-
-.top-label{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:9px;
-padding:9px 15px;
-border:1.5px solid #a4c9be;
-border-radius:50px;
-background:#fbeaf0;
-color:#116454;
-font-size:clamp(10px,3vw,13px);
-font-weight:900;
-font-style:italic;
-letter-spacing:1.7px;
-white-space:nowrap;
-flex-shrink:0;
+.ticker-track {
+  display: flex;
+  gap: 65px;
+  width: max-content;
+  padding-left: 25px;
+  animation: tickerMove 22s linear infinite;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.dot{
-width:11px;
-height:11px;
-border-radius:50%;
-background:#f04469;
-box-shadow:0 0 12px #f04469;
-animation:dotPulse 1.5s infinite;
+.ticker-track b {
+  color: #36e6a1;
 }
 
-@keyframes dotPulse{
-50%{box-shadow:0 0 20px 5px #f0446966}
+@keyframes tickerMove {
+  to { transform: translateX(-50%); }
 }
 
-/* DP ROTATING ANIMATION */
+/* MAIN CARD */
 
-.dp-box{
-position:relative;
-width:clamp(110px,17vh,140px);
-height:clamp(110px,17vh,140px);
-flex-shrink:0;
-margin:5px auto;
+.main {
+  width: 100%;
+  min-height: calc(100svh - 52px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 18px 35px;
 }
 
-.dp-box img{
-width:100%;
-height:100%;
-object-fit:cover;
-border-radius:50%;
-border:6px solid white;
-position:relative;
-z-index:2;
-box-shadow:0 0 20px #f2789166;
+.card {
+  width: 100%;
+  max-width: 540px;
+  padding: 30px 25px 38px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  background:
+    radial-gradient(ellipse at 50% 10%,rgba(111,40,190,.2),transparent 50%),
+    linear-gradient(150deg,#100c29,#080b1d);
+  border: 1px solid rgba(132,110,210,.55);
+  box-shadow:
+    0 0 35px rgba(120,50,255,.2),
+    0 0 85px rgba(20,190,255,.08);
+  animation: cardIn 1s ease both;
 }
 
-.dp-box:before{
-content:"";
-position:absolute;
-inset:-10px;
-border-radius:50%;
-border:5px solid #f27891;
-border-left-color:#ffb3c4;
-border-bottom-color:#ffc5d2;
-animation:rotateRing 5s linear infinite;
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.dp-box:after{
-content:"";
-position:absolute;
-inset:-17px;
-border-radius:50%;
-background:rgba(245,100,140,.10);
-filter:blur(12px);
-animation:dpGlow 2s infinite alternate;
+/* LOGO */
+
+.profile {
+  width: 205px;
+  height: 225px;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-@keyframes rotateRing{
-to{transform:rotate(360deg)}
+.ring {
+  position: absolute;
+  width: 205px;
+  height: 205px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  background:
+    linear-gradient(#140c32,#140c32) padding-box,
+    conic-gradient(#a94bff,#30d9ff,#f4c75c,#a94bff) border-box;
+  animation: rotate 7s linear infinite;
+  filter: drop-shadow(0 0 10px #944cff);
 }
 
-@keyframes dpGlow{
-from{opacity:.3;transform:scale(.96)}
-to{opacity:1;transform:scale(1.08)}
+.ring2 {
+  width: 180px;
+  height: 180px;
+  border-width: 2px;
+  opacity: .5;
+  animation: rotate 10s linear infinite reverse;
 }
 
-/* ONE LINE ANIMATED HEADLINE */
-
-.headline{
-width:100%;
-text-align:center;
-white-space:nowrap;
-font-size:clamp(22px,7.3vw,34px);
-font-weight:1000;
-font-style:italic;
-letter-spacing:-1.2px;
-line-height:1.2;
-margin:4px 0;
-flex-shrink:0;
+.avatar {
+  width: 145px;
+  height: 145px;
+  position: relative;
+  z-index: 2;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #17102f;
+  box-shadow: 0 0 0 2px #9c65ff,0 0 25px #8e42ff;
+  background: #17102f;
 }
 
-.headline span{
-display:inline-block;
-background:linear-gradient(
-110deg,
-#f36c43 0%,
-#ffad13 35%,
-#f36c43 55%,
-#142b27 75%,
-#142b27 100%
-);
-background-size:250% auto;
--webkit-background-clip:text;
-background-clip:text;
-color:transparent;
-animation:headlineShine 3s linear infinite;
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-@keyframes headlineShine{
-0%{background-position:200% center}
-100%{background-position:-200% center}
+.verified {
+  position: absolute;
+  right: 13px;
+  bottom: 25px;
+  z-index: 3;
+  width: 49px;
+  height: 49px;
+  border-radius: 50%;
+  background: linear-gradient(140deg,#ad54ff,#5420b5);
+  border: 4px solid #160d32;
+  box-shadow: 0 0 18px #a34bff;
+  display: grid;
+  place-items: center;
+  font-size: 23px;
 }
 
-/* COMMUNITY BADGE */
+.dot {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite;
+}
 
-.members{
-padding:8px 19px;
-border:1.5px solid #9acdbd;
-border-radius:40px;
-background:#e6f5f1;
-color:#09634e;
-font-size:14px;
-font-weight:900;
-white-space:nowrap;
-flex-shrink:0;
+.dot1 {
+  background: #ffd44d;
+  right: -7px;
+  top: 32px;
+  box-shadow: 0 0 14px #ffd44d;
+}
+
+.dot2 {
+  background: #35d9ff;
+  left: 8px;
+  bottom: 40px;
+  box-shadow: 0 0 14px #35d9ff;
+  animation-delay: 1s;
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  50% { transform: translateY(-12px); }
+}
+
+/* HEADLINE */
+
+.eyebrow {
+  color: #38d9f4;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: 800;
+  margin: 12px 0 19px;
+}
+
+.live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2dd9f2;
+  margin-right: 5px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  50% { opacity: .4; transform: scale(.7); }
+}
+
+h1 {
+  font-family: Georgia,serif;
+  font-size: clamp(32px,7vw,44px);
+  line-height: 1.2;
+  margin-bottom: 35px;
+  background: linear-gradient(90deg,#f5e4ff,#a8caff,#e6d5ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 12px #6540a0);
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.9;
+  color: #d3d5e9;
+  margin-bottom: 35px;
+}
+
+.description strong {
+  color: #3edaf5;
+  font-style: italic;
+}
+
+/* BADGES */
+
+.badges {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 60px;
+}
+
+.badge {
+  min-height: 47px;
+  padding: 0 17px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+}
+
+.purple {
+  border: 1px solid #b46bff;
+  color: white;
+  background: rgba(135,49,225,.15);
+  box-shadow: 0 0 18px rgba(158,64,255,.3);
+}
+
+.cyan {
+  color: #061a2b;
+  background: linear-gradient(100deg,#46e5ed,#16b9db);
+  box-shadow: 0 0 22px rgba(34,211,242,.35);
 }
 
 /* TELEGRAM BUTTON */
 
-.join-btn{
-position:relative;
-isolation:isolate;
-overflow:hidden;
-width:100%;
-min-height:65px;
-flex-shrink:0;
-border:1px solid #ffb5a6;
-border-radius:22px;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:10px;
-padding:9px 6px;
-text-decoration:none;
-background:linear-gradient(105deg,#fa7891,#fa594f,#ffad08);
-color:#111318;
-font-size:clamp(15px,4.5vw,21px);
-font-weight:1000;
-box-shadow:0 10px 30px rgba(245,91,91,.27);
-transition:transform .25s;
-animation:buttonPulse 2s ease-in-out infinite;
+.join-btn {
+  width: 95%;
+  min-height: 90px;
+  margin: auto;
+  padding: 15px;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  text-decoration: none;
+  color: white;
+  font-size: 21px;
+  font-weight: 900;
+  background: linear-gradient(115deg,#b66aff,#7730d6 55%,#5216a5);
+  border: 1px solid rgba(225,190,255,.6);
+  box-shadow:
+    0 0 22px rgba(145,65,255,.45),
+    0 10px 35px rgba(97,30,180,.35),
+    inset 0 2px 12px rgba(255,255,255,.3);
+  animation: buttonGlow 2.5s ease-in-out infinite;
+  transition: .3s;
 }
 
-.join-btn:active{
-transform:scale(.96);
+.join-btn:hover {
+  transform: translateY(-4px) scale(1.02);
 }
 
-.join-btn:before{
-content:"";
-position:absolute;
-z-index:-1;
-top:-50%;
-left:-100%;
-width:55%;
-height:200%;
-background:linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,.65),
-transparent
-);
-transform:rotate(25deg);
-animation:buttonShine 3s infinite;
+.join-btn svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+  flex-shrink: 0;
 }
 
-@keyframes buttonShine{
-0%{left:-100%}
-45%,100%{left:150%}
+.arrow {
+  font-size: 25px;
 }
 
-@keyframes buttonPulse{
-0%,100%{box-shadow:0 8px 25px #fa6b7550}
-50%{box-shadow:0 12px 38px #fa6b7590}
-}
-
-.telegram-icon{
-font-size:27px;
-}
-
-/* THREE FEATURE BOXES */
-
-.features{
-width:100%;
-display:grid;
-grid-template-columns:repeat(3,minmax(0,1fr));
-gap:8px;
-flex-shrink:0;
-}
-
-.feature{
-min-width:0;
-height:83px;
-border:1.5px solid #9bcbbd;
-border-radius:17px;
-background:rgba(225,246,241,.55);
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-gap:7px;
-animation:featureIn .8s ease both;
-}
-
-.feature:nth-child(2){animation-delay:.2s}
-.feature:nth-child(3){animation-delay:.4s}
-
-@keyframes featureIn{
-from{opacity:0;transform:translateY(12px)}
-to{opacity:1;transform:translateY(0)}
-}
-
-.feature strong{
-color:#ed6855;
-font-size:clamp(11px,3.5vw,15px);
-font-weight:1000;
-white-space:nowrap;
-}
-
-.feature span{
-color:#52776d;
-font-size:10px;
-font-weight:900;
-letter-spacing:1px;
+@keyframes buttonGlow {
+  0%,100% { box-shadow: 0 0 20px #8739d8; }
+  50% { box-shadow: 0 0 35px #bd65ff; }
 }
 
 /* FOOTER */
 
-.footer{
-width:100%;
-border-top:1.5px solid #a5cdbf;
-padding-top:14px;
-text-align:center;
-color:#638078;
-font-size:clamp(10px,3vw,13px);
-line-height:1.5;
-flex-shrink:0;
+.note {
+  color: #9997c2;
+  font-size: 16px;
+  line-height: 1.9;
+  margin-top: 16px;
 }
 
-/* FLOATING PETALS */
-
-.petal{
-position:fixed;
-z-index:0;
-width:16px;
-height:10px;
-border-radius:100% 0 100% 0;
-background:linear-gradient(135deg,#f5a0b0,#ffd3da);
-box-shadow:0 3px 12px #f3648240;
-pointer-events:none;
-animation:petalFall linear infinite;
+.status {
+  margin-top: 12px;
+  font-family: monospace;
+  color: #a5a5cb;
+  font-size: 13px;
+  letter-spacing: 1px;
 }
 
-.p1{left:8%;animation-duration:9s}
-.p2{left:27%;animation-duration:12s;animation-delay:-4s}
-.p3{left:68%;animation-duration:10s;animation-delay:-3s}
-.p4{left:90%;animation-duration:13s;animation-delay:-8s}
-.p5{left:48%;animation-duration:11s;animation-delay:-5s}
-
-@keyframes petalFall{
-0%{top:-5%;transform:rotate(0deg) translateX(0)}
-50%{transform:rotate(180deg) translateX(30px)}
-100%{top:105%;transform:rotate(360deg) translateX(-20px)}
+.status strong {
+  color: #31d8ef;
 }
 
-/* MADE BY RADHE */
-
-.made-by{
-position:fixed;
-right:12px;
-bottom:12px;
-z-index:5;
-display:flex;
-align-items:center;
-gap:8px;
-padding:9px 14px;
-border-radius:40px;
-background:rgba(45,45,45,.80);
-color:white;
-font-size:13px;
-font-weight:800;
-box-shadow:0 5px 18px #0003;
-backdrop-filter:blur(8px);
+.credit {
+  position: absolute;
+  right: 17px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 13px;
+  border-radius: 30px;
+  border: 1px solid rgba(168,153,220,.3);
+  background: rgba(12,12,30,.9);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.made-icon{
-width:25px;
-height:25px;
-border-radius:8px;
-background:linear-gradient(135deg,#a77aff,#6742db);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:15px;
+.cube {
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: linear-gradient(140deg,#ac6aff,#6625c9);
+  box-shadow: 0 0 12px #8945ff;
 }
 
-/* SMALL MOBILE */
+/* MOBILE RESPONSIVE */
 
-@media(max-width:350px){
-.card{
-padding:12px 10px;
-border-radius:30px;
+@media(max-width:480px) {
+  .main {
+    padding: 18px 18px 75px;
+  }
+
+  .card {
+    padding: 27px 19px 34px;
+    border-radius: 29px;
+  }
+
+  .profile {
+    transform: scale(.94);
+    margin-bottom: 10px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+  }
+
+  h1 {
+    font-size: 34px;
+    margin-bottom: 28px;
+  }
+
+  .description {
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .badges {
+    gap: 9px;
+    margin-bottom: 48px;
+  }
+
+  .badge {
+    padding: 0 12px;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .join-btn {
+    width: 100%;
+    min-height: 78px;
+    font-size: 19px;
+    gap: 10px;
+  }
+
+  .note {
+    font-size: 15px;
+  }
+
+  .status {
+    font-size: 12px;
+  }
 }
 
-.headline{
-font-size:21px;
-letter-spacing:-1px;
-}
-
-.dp-box{
-width:105px;
-height:105px;
-}
-
-.join-btn{
-min-height:58px;
-font-size:14px;
-gap:7px;
-}
-
-.feature{
-height:75px;
-}
-
-.feature strong{
-font-size:10px;
-}
-
-.feature span{
-font-size:9px;
-}
-
-.top-label{
-font-size:10px;
-letter-spacing:1px;
-}
-}
-
-/* SHORT HEIGHT PHONES */
-
-@media(max-height:650px){
-.card{
-height:calc(100svh - 85px);
-min-height:0;
-padding:9px 12px;
-gap:3px;
-}
-
-.dp-box{
-width:90px;
-height:90px;
-}
-
-.top-label{
-padding:7px 12px;
-}
-
-.members{
-padding:6px 15px;
-}
-
-.join-btn{
-min-height:53px;
-}
-
-.features{
-gap:6px;
-}
-
-.feature{
-height:66px;
-}
-
-.footer{
-padding-top:8px;
-}
-}
-
-/* REDUCED MOTION */
-
-@media(prefers-reduced-motion:reduce){
-*,*::before,*::after{
-animation-duration:.01ms!important;
-animation-iteration-count:1!important;
-}
+@media(max-width:350px) {
+  .card { padding-left: 13px; padding-right: 13px; }
+  .badges { gap: 6px; }
+  .badge { padding: 0 8px; font-size: 9px; }
+  h1 { font-size: 30px; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- FLOATING PETALS -->
+<div id="dm-page">
 
-<div class="petal p1"></div>
-<div class="petal p2"></div>
-<div class="petal p3"></div>
-<div class="petal p4"></div>
-<div class="petal p5"></div>
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>BTC&nbsp; 71,432 &nbsp;<b>+2.14%</b></span>
+      <span>EUR/USD&nbsp; 1.0845</span>
+      <span>GOLD&nbsp; 2,645 &nbsp;<b>+0.85%</b></span>
+      <span>NASDAQ&nbsp; 19,125 &nbsp;<b>+1.24%</b></span>
+      <span>BTC&nbsp; 71,432 &nbsp;<b>+2.14%</b></span>
+      <span>EUR/USD&nbsp; 1.0845</span>
+    </div>
+  </div>
 
-<!-- MAIN LANDING PAGE -->
+  <main class="main">
+    <section class="card">
 
-<main class="card">
+      <div class="profile">
+        <div class="ring"></div>
+        <div class="ring ring2"></div>
 
-<!-- TOP LABEL -->
+        <div class="avatar">
+          <img
+            src="https://www.image2url.com/r2/default/images/1795440057360-9b625bf9-33a9-4894-bb55-37486b629187.png"
+            alt="DM ARMY Logo">
+        </div>
 
-<div class="top-label">
-<span class="dot"></span>
-SYSTEM BHAI OFFICIAL
-</div>
+        <div class="verified">♢</div>
+        <span class="dot dot1"></span>
+        <span class="dot dot2"></span>
+      </div>
 
-<!-- PROFILE DP -->
+      <div class="eyebrow">
+        <span class="live-dot"></span>
+        OFFICIAL TELEGRAM CHANNEL
+      </div>
 
-<div class="dp-box">
-<img
-src="https://www.image2url.com/r2/default/images/1795440057360-9b625bf9-33a9-4894-bb55-37486b629187.png"
-alt="SYSTEM BHAI DP">
-</div>
+      <h1>𝐃𝐌 𝐀𝐑𝐌𝐘</h1>
 
-<!-- ANIMATED HEADLINE -->
+      <p class="description">
+        We don't sell signals. We teach you to
+        <strong>read charts yourself</strong> —
+        daily levels, live setups and the full
+        reasoning behind every call.
+      </p>
 
-<h1 class="headline">
-<span>DM ARMY </span>
-</h1>
+      <div class="badges">
+        <div class="badge purple">✦ VERIFIED CHANNEL</div>
+        <div class="badge cyan">♧ RISK FIRST</div>
+      </div>
 
-<!-- COMMUNITY -->
+      <a class="join-btn"
+         href="https://telegram.me/+sLV-XwcttEY5N2M1"
+         target="_blank"
+         rel="noopener noreferrer">
 
-<div class="members">
-Official Telegram Community
-</div>
+        <svg viewBox="0 0 24 24">
+          <path d="M21.8 3.2L18.5 20c-.25 1.18-.95 1.47-1.92.91l-5.3-3.91-2.56 2.46c-.28.28-.52.52-1.07.52l.38-5.4 9.83-8.88c.43-.38-.1-.6-.67-.22L5.04 13.2.03 11.63c-1.1-.34-1.12-1.1.23-1.61L19.85 2.4c.91-.34 1.71.22 1.42.8z"/>
+        </svg>
 
-<!-- TELEGRAM BUTTON -->
+        <span>Join Telegram 🚀</span>
+        <span class="arrow">→</span>
+      </a>
 
-<!-- APNA TELEGRAM LINK YAHAN DAALEIN -->
+      <div class="note">
+        No card required&nbsp; · &nbsp;Free forever
+        <br>
+        Leave anytime
+      </div>
 
-<a class="join-btn"
-href="https://telegram.me/+sLV-XwcttEY5N2M1"
-target="_blank"
-rel="noopener noreferrer">
+      <div class="status">
+        Status: <strong>Ready</strong> · opens in Telegram
+      </div>
 
-<span class="telegram-icon">➤</span>
-<span>JOIN TELEGRAM CHANNEL</span>
+    </section>
+  </main>
 
-</a>
+  <div class="credit">
+    <span class="cube">✦</span>
+    Made By RADHE
+  </div>
 
-<!-- FEATURES -->
-
-<div class="features">
-
-<div class="feature">
-<strong>VERIFIED</strong>
-<span>CLICKS</span>
-</div>
-
-<div class="feature">
-<strong>INSTANT</strong>
-<span>ACCESS</span>
-</div>
-
-<div class="feature">
-<strong>ZERO</strong>
-<span>SPAM</span>
-</div>
-
-</div>
-
-<!-- FOOTER -->
-
-<div class="footer">
-Opens Telegram • Tap the button to join our community
-</div>
-
-</main>
-
-<!-- MADE BY RADHE -->
-
-<div class="made-by">
-<span class="made-icon">✦</span>
-<span>Made By RADHE</span>
 </div>
 
 </body>
